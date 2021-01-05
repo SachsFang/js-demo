@@ -92,3 +92,49 @@ function calculateChangePos(initPos, finalPos) {
     }
     return initPos;
 }
+
+/**
+ * 创建随机数
+ * @param lowerValue
+ * @param upperValue
+ * lowerValue-upperValue表示创建随机数的范围
+ * @returns {number}
+ */
+function createRandomNumber(lowerValue, upperValue) {
+    let choices = upperValue - lowerValue + 1;
+    return Math.floor(Math.random() * choices + lowerValue);
+}
+
+/**
+ * 比较函数(正序)
+ * 由sort()进行调用
+ * @param value1
+ * @param value2
+ * @returns {number}
+ */
+function compareAsc(value1, value2) {
+    if (value1 < value2) {
+        return -1;
+    } else if (value1 > value2) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+/**
+ * 比较函数(反序)
+ * 由sort()进行调用
+ * @param value1
+ * @param value2
+ * @returns {number}
+ */
+function compareDesc(value1, value2) {
+    if (value1 < value2) {
+        return 1;
+    } else if (value1 > value2) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
