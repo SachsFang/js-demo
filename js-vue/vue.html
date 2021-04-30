@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+</head>
+<body>
+<div id="app" v-bind:title="message">
+    {{message}}
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ol>
+    <div v-if="seen">你看得见我吗-if</div>
+    <button style="width: 100px;height: 50px;" v-on:click="clickBtn"></button><br>
+    <input v-model.lazy="myInput">{{myInput}}
+    <ol>
+        <my-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></my-item>
+    </ol>
+    <br>
+    <button v-on:click="count">{{counter}}</button>
+    <div id="example-4">
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+    </div>
+    <div id="diffuse" v-bind:style="{fontSize: fontSize + 'em'}">
+        <blog-post v-for="post of posts"
+                   v-bind:key="post.id"
+                   v-bind:post="post"
+                   v-on:addFontSize="addFontSize($event)"
+                   v-on:reduceFontSize="reduceFontSize($event)">
+        </blog-post>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js_vue.js"></script>
+</body>
+</html>
